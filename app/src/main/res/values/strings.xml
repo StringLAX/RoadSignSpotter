@@ -14,4 +14,10 @@
     <string name="email_error">Email tidak valid</string>
     <string name="unauthorized">Email tidak terdaftar! / Email atau Password salah!</string>
     <string name="email_exist">Email sudah terdaftar!</string>
+    <string name="pref_is_login">is_login</string>
+    <string name="pref_email">email</string>
+    <string name="pref_password">password</string>
+    <string name="pref_name">name</string>
+    <string name="pref_token">token</string>
+    <string name="pref_user_id">user id</string>
 </resources>
