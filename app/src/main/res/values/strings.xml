@@ -6,9 +6,11 @@
     <string name="register">Register</string>
     <string name="click_register">Register Here</string>
     <string name="name">Name</string>
+    <string name="username">Username</string>
     <string name="dont_have_account">Don\'t have an account?</string>
     <string name="password_error">"Password harus memiliki minimal 8 karakter."</string>
     <string name="name_empty">Nama tidak boleh kosong</string>
+    <string name="username_empty">Username tidak boleh kosong</string>
     <string name="email_empty">Email tidak boleh kosong</string>
     <string name="password_empty">Password tidak boleh kosong</string>
     <string name="email_error">Email tidak valid</string>
@@ -18,6 +20,7 @@
     <string name="pref_email">email</string>
     <string name="pref_password">password</string>
     <string name="pref_name">name</string>
+    <string name="pref_username">username</string>
     <string name="pref_token">token</string>
     <string name="pref_user_id">user id</string>
 </resources>
