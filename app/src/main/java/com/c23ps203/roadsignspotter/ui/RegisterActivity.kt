@@ -23,7 +23,7 @@ class RegisterActivity : AppCompatActivity() {
             val password = binding.edRegisterPassword.text.toString()
 
             when {
-                name.isEmpty() || email.isEmpty() || password.isEmpty() -> {
+                name.isEmpty() || username.isEmpty() || email.isEmpty() || password.isEmpty() -> {
                     binding.edRegisterName.error = resources.getString(R.string.name_empty)
                     binding.edRegisterUsername.error = resources.getString(R.string.username_empty)
                     binding.edRegisterEmail.error = resources.getString(R.string.email_empty)
