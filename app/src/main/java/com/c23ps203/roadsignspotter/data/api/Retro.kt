@@ -15,6 +15,6 @@ class Retro {
     }
 
     companion object {
-        private const val BASE_URL = "Belum Ada"
+        private const val BASE_URL = "" //pake ipv4 address di /ipconfig
     }
 }

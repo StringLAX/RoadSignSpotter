@@ -3,15 +3,16 @@ package com.c23ps203.roadsignspotter.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.c23ps203.roadsignspotter.R
-import com.c23ps203.roadsignspotter.databinding.ActivityLoginBinding
+import com.c23ps203.roadsignspotter.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    private lateinit var binding: ActivityLoginBinding
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityLoginBinding.inflate(layoutInflater)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
     }
 }

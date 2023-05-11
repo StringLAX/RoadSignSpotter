@@ -3,8 +3,17 @@ package com.c23ps203.roadsignspotter.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.widget.Toast
 import com.c23ps203.roadsignspotter.R
+import com.c23ps203.roadsignspotter.data.api.Api
+import com.c23ps203.roadsignspotter.data.api.Retro
+import com.c23ps203.roadsignspotter.data.model.request.RegisterRequest
+import com.c23ps203.roadsignspotter.data.model.response.RegisterResponse
 import com.c23ps203.roadsignspotter.databinding.ActivityRegisterBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class RegisterActivity : AppCompatActivity() {
 
@@ -33,11 +42,40 @@ class RegisterActivity : AppCompatActivity() {
                     resources.getString(R.string.password_error)
                 }
                 else -> {
-                    // testing intent
-                    intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-                    startActivity(intent)
+                    register()
                 }
             }
         }
+    }
+
+    private fun register (){
+        val request = RegisterRequest()
+        request.name = binding.edRegisterName.text.toString()
+        request.username = binding.edRegisterUsername.text.toString()
+        request.email = binding.edRegisterEmail.text.toString()
+        request.password = binding.edRegisterPassword.text.toString()
+
+        val retro = Retro().getRetroClientInstance().create(Api::class.java)
+        retro.register(request).enqueue(object : Callback<RegisterResponse> {
+            override fun onResponse(
+                call: Call<RegisterResponse>,
+                response: Response<RegisterResponse>
+            ) {
+                val user = response.body()
+                if (user != null) {
+                    Log.e("Register Result", user.toString())
+                    intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                    startActivity(intent)
+                } else {
+                    Toast.makeText(this@RegisterActivity, R.string.email_exist, Toast.LENGTH_SHORT)
+                        .show()
+                }
+            }
+
+            override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
+                Toast.makeText(this@RegisterActivity, t.message, Toast.LENGTH_SHORT).show()
+            }
+
+        })
     }
 }
