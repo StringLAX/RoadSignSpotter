@@ -25,4 +25,13 @@ class PreferenceHelper(context: Context) {
         editor.clear()
         editor.apply()
     }
+
+    fun put(key: String, value: Boolean) {
+        editor.putBoolean(key, value)
+        editor.apply()
+    }
+
+    fun getBoolean(key: String): Boolean {
+        return sharedPref.getBoolean(key, false)
+    }
 }
