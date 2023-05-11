@@ -3,7 +3,6 @@ package com.c23ps203.roadsignspotter.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import com.c23ps203.roadsignspotter.R
 import com.c23ps203.roadsignspotter.data.api.Api
@@ -33,21 +32,21 @@ class LoginActivity : AppCompatActivity() {
 
         binding.btnLogin.setOnClickListener {
 
-                val email = binding.edLoginEmail.text.toString()
-                val password = binding.edLoginPassword.text.toString()
+            val email = binding.edLoginEmail.text.toString()
+            val password = binding.edLoginPassword.text.toString()
 
-                when {
-                    email.isEmpty() || password.isEmpty() -> {
-                        binding.edLoginEmail.error = resources.getString(R.string.email_error)
-                        binding.edLoginPassword.error = resources.getString(R.string.password_error)
-                    }
-                    password.length < 8 -> {
-                        binding.edLoginPassword.error = resources.getString(R.string.password_error)
-                    }
-                    else -> {
-                        login()
-                    }
+            when {
+                email.isEmpty() || password.isEmpty() -> {
+                    binding.edLoginEmail.error = resources.getString(R.string.email_error)
+                    binding.edLoginPassword.error = resources.getString(R.string.password_error)
                 }
+                password.length < 8 -> {
+                    binding.edLoginPassword.error = resources.getString(R.string.password_error)
+                }
+                else -> {
+                    login()
+                }
+            }
         }
 
         binding.btnToRegister.setOnClickListener {
@@ -64,7 +63,6 @@ class LoginActivity : AppCompatActivity() {
         val retro = Retro().getRetroClientInstance().create(Api::class.java)
         retro.login(request).enqueue(object : Callback<LoginResponse> {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
-                val user = response.body()
                 if (response.isSuccessful) {
                     sharedPref.put(Constant.prefIsLogin, true)
                     moveIntent()

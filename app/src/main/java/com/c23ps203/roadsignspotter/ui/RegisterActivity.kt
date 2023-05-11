@@ -48,7 +48,7 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    private fun register (){
+    private fun register() {
         val request = RegisterRequest()
         request.name = binding.edRegisterName.text.toString()
         request.username = binding.edRegisterUsername.text.toString()
@@ -58,8 +58,7 @@ class RegisterActivity : AppCompatActivity() {
         val retro = Retro().getRetroClientInstance().create(Api::class.java)
         retro.register(request).enqueue(object : Callback<RegisterResponse> {
             override fun onResponse(
-                call: Call<RegisterResponse>,
-                response: Response<RegisterResponse>
+                call: Call<RegisterResponse>, response: Response<RegisterResponse>
             ) {
                 val user = response.body()
                 if (user != null) {
