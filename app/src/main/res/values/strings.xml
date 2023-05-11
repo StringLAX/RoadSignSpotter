@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">RoadSignSpotter</string>
+    <string name="email">E-mail</string>
+    <string name="password">Password</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="click_register">Register Here</string>
+    <string name="name">Name</string>
+    <string name="dont_have_account">Don\'t have an account?</string>
+    <string name="password_error">"Password harus memiliki minimal 8 karakter."</string>
+    <string name="name_empty">Nama tidak boleh kosong</string>
+    <string name="email_empty">Email tidak boleh kosong</string>
+    <string name="password_empty">Password tidak boleh kosong</string>
+    <string name="email_error">Email tidak valid</string>
+    <string name="unauthorized">Email tidak terdaftar! / Email atau Password salah!</string>
+    <string name="email_exist">Email sudah terdaftar!</string>
+</resources>
