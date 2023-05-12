@@ -62,7 +62,7 @@ class RegisterActivity : AppCompatActivity() {
             ) {
                 val user = response.body()
                 if (user != null) {
-                    Log.e("Register Result", user.toString())
+                    Log.d("Register Result", user.message.toString())
                     intent = Intent(this@RegisterActivity, LoginActivity::class.java)
                     startActivity(intent)
                 } else {
