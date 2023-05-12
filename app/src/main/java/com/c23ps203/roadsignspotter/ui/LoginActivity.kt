@@ -3,6 +3,7 @@ package com.c23ps203.roadsignspotter.ui
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import com.c23ps203.roadsignspotter.R
 import com.c23ps203.roadsignspotter.data.api.Api
@@ -66,6 +67,9 @@ class LoginActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     sharedPref.put(Constant.prefIsLogin, true)
                     sharedPref.put(Constant.prefToken, "${response.body()?.token}")
+                    sharedPref.put(Constant.prefName, "${response.body()?.name}")
+                    sharedPref.put(Constant.prefUsername, "${response.body()?.username}")
+                    Log.d("message", "${response.body()?.message}")
                     moveIntent()
                 }
             }

@@ -9,6 +9,14 @@ class LoginResponse (
     @Expose
     var message: String,
 
+    @SerializedName("name")
+    @Expose
+    var name: String,
+
+    @SerializedName("username")
+    @Expose
+    var username: String,
+
     @SerializedName("token")
     @Expose
     var token: String
