@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         sharedPref = PreferenceHelper(this)
 
-        binding.textView.text = "Hello ${sharedPref.getString(Constant.prefName).toString()}"
+        binding.tvName.text = "Hello ${sharedPref.getString(Constant.prefName).toString()}"
 
         Log.d("token", sharedPref.getString(Constant.prefToken).toString())
         Log.d("name", sharedPref.getString(Constant.prefName).toString())

@@ -7,24 +7,25 @@
     tools:context=".ui.ProfileActivity">
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/tv_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="173dp"
-        tools:layout_editor_absoluteY="27dp" />
+        android:padding="10dp"
+        android:textSize="20sp"
+        android:layout_margin="15dp"
+        android:text="@string/name" />
 
     <TextView
-        android:id="@+id/username"
+        android:id="@+id/tv_username"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/name"
+        android:layout_below="@+id/tv_name"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="78dp"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="175dp"
-        tools:layout_editor_absoluteY="79dp" />
+        android:textSize="20sp"
+        android:padding="10dp"
+        android:layout_margin="10dp"
+        android:text="@string/username" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

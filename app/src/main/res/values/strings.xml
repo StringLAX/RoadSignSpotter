@@ -3,6 +3,7 @@
     <string name="email">E-mail</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
+    <string name="logout">Logout</string>
     <string name="register">Register</string>
     <string name="click_register">Register Here</string>
     <string name="name">Name</string>
@@ -23,4 +24,6 @@
     <string name="pref_username">username</string>
     <string name="pref_token">token</string>
     <string name="pref_user_id">user id</string>
+    <string name="dashboard">Dashboard</string>
+    <string name="profile">Profile</string>
 </resources>

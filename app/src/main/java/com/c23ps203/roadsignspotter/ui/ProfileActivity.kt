@@ -1,8 +1,11 @@
 package com.c23ps203.roadsignspotter.ui
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import com.c23ps203.roadsignspotter.R
 import com.c23ps203.roadsignspotter.data.helper.Constant
 import com.c23ps203.roadsignspotter.data.helper.PreferenceHelper
@@ -13,6 +16,7 @@ class ProfileActivity : AppCompatActivity() {
     private lateinit var binding: ActivityProfileBinding
     private lateinit var sharedPref: PreferenceHelper
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileBinding.inflate(layoutInflater)
@@ -22,8 +26,8 @@ class ProfileActivity : AppCompatActivity() {
 
         sharedPref = PreferenceHelper(this)
 
-        binding.name.text = sharedPref.getString(Constant.prefName).toString()
-        binding.username.text = sharedPref.getString(Constant.prefUsername).toString()
+        binding.tvName.text = "Name : ${sharedPref.getString(Constant.prefName).toString()}"
+        binding.tvUsername.text = "Username : ${sharedPref.getString(Constant.prefUsername).toString()}"
 
         binding.bottomNavigation.selectedItemId = R.id.person
 
@@ -40,5 +44,21 @@ class ProfileActivity : AppCompatActivity() {
             }
             false
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.profilemenu, menu)
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when(item.itemId){
+            R.id.btn_logout -> {
+                sharedPref.clear()
+                startActivity(Intent(this@ProfileActivity, LoginActivity::class.java))
+                finish()
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
