@@ -65,6 +65,7 @@ class LoginActivity : AppCompatActivity() {
             override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                 if (response.isSuccessful) {
                     sharedPref.put(Constant.prefIsLogin, true)
+                    sharedPref.put(Constant.prefToken, "${response.body()?.token}")
                     moveIntent()
                 }
             }
