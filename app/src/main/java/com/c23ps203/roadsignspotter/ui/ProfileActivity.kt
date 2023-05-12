@@ -27,7 +27,8 @@ class ProfileActivity : AppCompatActivity() {
         sharedPref = PreferenceHelper(this)
 
         binding.tvName.text = "Name : ${sharedPref.getString(Constant.prefName).toString()}"
-        binding.tvUsername.text = "Username : ${sharedPref.getString(Constant.prefUsername).toString()}"
+        binding.tvUsername.text =
+            "Username : ${sharedPref.getString(Constant.prefUsername).toString()}"
 
         binding.bottomNavigation.selectedItemId = R.id.person
 
@@ -52,7 +53,7 @@ class ProfileActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId){
+        when (item.itemId) {
             R.id.btn_logout -> {
                 sharedPref.clear()
                 startActivity(Intent(this@ProfileActivity, LoginActivity::class.java))
