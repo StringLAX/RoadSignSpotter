@@ -1,5 +1,6 @@
 package com.c23ps203.roadsignspotter.ui
 
+import android.annotation.SuppressLint
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,6 +15,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private lateinit var sharedPref: PreferenceHelper
 
+    @SuppressLint("SetTextI18n")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -23,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         sharedPref = PreferenceHelper(this)
 
-        binding.textView.text = sharedPref.getString(Constant.prefName).toString()
+        binding.textView.text = "Hello ${sharedPref.getString(Constant.prefName).toString()}"
 
         Log.d("token", sharedPref.getString(Constant.prefToken).toString())
         Log.d("name", sharedPref.getString(Constant.prefName).toString())
@@ -37,7 +39,8 @@ class MainActivity : AppCompatActivity() {
                     return@setOnNavigationItemSelectedListener true
                 }
                 R.id.person -> {
-                    startActivity(Intent(this@MainActivity, RegisterActivity::class.java))
+                    startActivity(Intent(this@MainActivity, ProfileActivity::class.java))
+                    overridePendingTransition(0, 0)
                     return@setOnNavigationItemSelectedListener true
                 }
             }
