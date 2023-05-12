@@ -26,4 +26,5 @@
     <string name="pref_user_id">user id</string>
     <string name="dashboard">Dashboard</string>
     <string name="profile">Profile</string>
+    <string name="scannow">Scan Rambu</string>
 </resources>

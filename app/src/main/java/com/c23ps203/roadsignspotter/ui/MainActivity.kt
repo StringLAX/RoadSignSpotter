@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var sharedPref: PreferenceHelper
 
     @SuppressLint("SetTextI18n")
+    @Suppress("DEPRECATION")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
@@ -31,8 +32,9 @@ class MainActivity : AppCompatActivity() {
         Log.d("name", sharedPref.getString(Constant.prefName).toString())
         Log.d("username", sharedPref.getString(Constant.prefUsername).toString())
 
-        binding.bottomNavigation.selectedItemId = R.id.dashboard
 
+
+        binding.bottomNavigation.selectedItemId = R.id.dashboard
         binding.bottomNavigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.dashboard -> {

@@ -30,8 +30,9 @@ class ProfileActivity : AppCompatActivity() {
         binding.tvUsername.text =
             "Username : ${sharedPref.getString(Constant.prefUsername).toString()}"
 
-        binding.bottomNavigation.selectedItemId = R.id.person
 
+
+        binding.bottomNavigation.selectedItemId = R.id.person
         binding.bottomNavigation.setOnNavigationItemSelectedListener { item ->
             when (item.itemId) {
                 R.id.dashboard -> {
