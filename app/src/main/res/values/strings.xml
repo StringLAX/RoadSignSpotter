@@ -27,4 +27,11 @@
     <string name="dashboard">Dashboard</string>
     <string name="profile">Profile</string>
     <string name="scannow">Scan Rambu</string>
+    <string name="gallery">Ambil Dari Gallery</string>
+    <string name="camera">Ambil Dari Camera</string>
+    <string name="no_permission">Tidak mendapat izin akses.</string>
+    <string name="btn_capture_image">Capture image</string>
+    <string name="btn_switch_camera">Switch camera</string>
+    <string name="failed_to_open_camera">Gagal membuka kamera</string>
+    <string name="failed_to_save_image">Gagal menyimpan gambar</string>
 </resources>

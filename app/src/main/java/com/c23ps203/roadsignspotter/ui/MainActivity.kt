@@ -32,7 +32,9 @@ class MainActivity : AppCompatActivity() {
         Log.d("name", sharedPref.getString(Constant.prefName).toString())
         Log.d("username", sharedPref.getString(Constant.prefUsername).toString())
 
-
+        binding.btnToCameraActivity.setOnClickListener {
+            startActivity(Intent(this@MainActivity, ScanActivity::class.java))
+        }
 
         binding.bottomNavigation.selectedItemId = R.id.dashboard
         binding.bottomNavigation.setOnNavigationItemSelectedListener { item ->
