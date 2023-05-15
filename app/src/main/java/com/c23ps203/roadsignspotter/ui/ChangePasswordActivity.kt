@@ -54,7 +54,7 @@ class ChangePasswordActivity : AppCompatActivity() {
                     Toast.makeText(this@ChangePasswordActivity, user?.message, Toast.LENGTH_SHORT).show()
                     startActivity(Intent(this@ChangePasswordActivity, ProfileActivity::class.java))
                 } else {
-                    Log.d("ChangePasswordActivity", "onResponse: ${user?.message}")
+                    Log.d("ChangePasswordActivity", "Password change failed")
                     Toast.makeText(this@ChangePasswordActivity, user?.message, Toast.LENGTH_SHORT).show()
                 }
             }
