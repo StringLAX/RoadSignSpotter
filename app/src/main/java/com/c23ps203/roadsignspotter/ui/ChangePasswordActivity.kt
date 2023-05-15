@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
-import com.c23ps203.roadsignspotter.R
 import com.c23ps203.roadsignspotter.data.api.Api
 import com.c23ps203.roadsignspotter.data.api.Retro
 import com.c23ps203.roadsignspotter.data.helper.Constant
@@ -53,7 +52,7 @@ class ChangePasswordActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     Log.d("ChangePasswordActivity", "onResponse: ${user?.message}")
                     Toast.makeText(this@ChangePasswordActivity, user?.message, Toast.LENGTH_SHORT).show()
-                    startActivity(Intent(this@ChangePasswordActivity, MainActivity::class.java))
+                    startActivity(Intent(this@ChangePasswordActivity, ProfileActivity::class.java))
                 } else {
                     Log.d("ChangePasswordActivity", "onResponse: ${user?.message}")
                     Toast.makeText(this@ChangePasswordActivity, user?.message, Toast.LENGTH_SHORT).show()
