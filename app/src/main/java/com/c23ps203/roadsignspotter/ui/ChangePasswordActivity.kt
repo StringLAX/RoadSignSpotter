@@ -35,7 +35,7 @@ class ChangePasswordActivity : AppCompatActivity() {
         }
     }
 
-    fun changePassword() {
+    private fun changePassword() {
         val request = ChangePasswordRequest()
         val token = "Bearer ${sharedPref.getString(Constant.prefToken)}"
         request.userId = sharedPref.getString(Constant.prefUserId)
