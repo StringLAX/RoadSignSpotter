@@ -26,11 +26,13 @@ class ProfileActivity : AppCompatActivity() {
 
         sharedPref = PreferenceHelper(this)
 
-        binding.tvName.text = "Name : ${sharedPref.getString(Constant.prefName).toString()}"
-        binding.tvUsername.text =
-            "Username : ${sharedPref.getString(Constant.prefUsername).toString()}"
+        binding.tvName.text =  resources.getString(R.string.name_profile) + " ${sharedPref.getString(Constant.prefName).toString()}"
+        binding.tvUsername.text = resources.getString(R.string.username_profile) +
+            " ${sharedPref.getString(Constant.prefUsername).toString()}"
 
-
+        binding.btnChangePassword.setOnClickListener {
+            startActivity(Intent(this@ProfileActivity, ChangePasswordActivity::class.java))
+        }
 
         binding.bottomNavigation.selectedItemId = R.id.person
         binding.bottomNavigation.setOnNavigationItemSelectedListener { item ->

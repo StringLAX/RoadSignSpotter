@@ -2,6 +2,8 @@
     <string name="app_name">RoadSignSpotter</string>
     <string name="email">E-mail</string>
     <string name="password">Password</string>
+    <string name="old_password">Old Password</string>
+    <string name="new_password">New Password</string>
     <string name="login">Login</string>
     <string name="logout">Logout</string>
     <string name="register">Register</string>
@@ -34,4 +36,7 @@
     <string name="btn_switch_camera">Switch camera</string>
     <string name="failed_to_open_camera">Gagal membuka kamera</string>
     <string name="failed_to_save_image">Gagal menyimpan gambar</string>
+    <string name="name_profile">Name \t\t\t\t\t\t:</string>
+    <string name="username_profile">Username \t:</string>
+    <string name="change_password">Ubah Password</string>
 </resources>

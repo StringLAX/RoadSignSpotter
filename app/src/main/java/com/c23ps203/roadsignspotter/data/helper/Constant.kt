@@ -9,5 +9,7 @@ class Constant {
         const val prefToken = R.string.pref_token.toString()
         const val prefName = R.string.pref_name.toString()
         const val prefUsername = R.string.pref_username.toString()
+        const val prefEmail = R.string.pref_email.toString()
+        const val prefUserId = R.string.pref_user_id.toString()
     }
 }

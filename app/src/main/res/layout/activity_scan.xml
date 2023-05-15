@@ -23,7 +23,7 @@
     <Button
         android:id="@+id/btn_get_from_gallery"
         android:layout_width="250dp"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_marginTop="15dp"
         android:text="@string/gallery"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -35,14 +35,14 @@
 
     <TextView
         android:id="@+id/tv_result"
-        android:layout_width="250dp"
-        android:layout_height="225dp"
+        android:layout_width="249dp"
+        android:layout_height="190dp"
         android:layout_margin="15dp"
         android:text="Hasil pendeteksian akan ditampilkan disini."
+        android:textAlignment="center"
+        android:textSize="24sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:textSize="24sp"
-        android:textAlignment="center"
         app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_get_from_gallery"
@@ -51,14 +51,15 @@
     <Button
         android:id="@+id/btn_scannow"
         android:layout_width="250dp"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_marginTop="15dp"
         android:text="@string/scannow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_result"
-        app:layout_constraintVertical_bias="0.17" />
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

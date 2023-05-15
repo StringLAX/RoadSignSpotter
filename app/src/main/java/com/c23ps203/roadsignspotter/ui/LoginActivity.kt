@@ -69,6 +69,8 @@ class LoginActivity : AppCompatActivity() {
                     sharedPref.put(Constant.prefToken, "${response.body()?.token}")
                     sharedPref.put(Constant.prefName, "${response.body()?.name}")
                     sharedPref.put(Constant.prefUsername, "${response.body()?.username}")
+                    sharedPref.put(Constant.prefEmail, "${response.body()?.email}")
+                    sharedPref.put(Constant.prefUserId, "${response.body()?.userId}")
                     Log.d("message", "${response.body()?.message}")
                     moveIntent()
                 }

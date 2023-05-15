@@ -1,7 +1,9 @@
 package com.c23ps203.roadsignspotter.data.api
 
+import com.c23ps203.roadsignspotter.data.model.request.ChangePasswordRequest
 import com.c23ps203.roadsignspotter.data.model.request.LoginRequest
 import com.c23ps203.roadsignspotter.data.model.request.RegisterRequest
+import com.c23ps203.roadsignspotter.data.model.response.ChangePasswordResponse
 import com.c23ps203.roadsignspotter.data.model.response.LoginResponse
 import com.c23ps203.roadsignspotter.data.model.response.RegisterResponse
 import retrofit2.http.Body
@@ -20,4 +22,10 @@ interface Api {
     fun register(
         @Body registerRequest: RegisterRequest
     ): Call<RegisterResponse>
+
+    @POST("/auth/change-password")
+    fun changePassword(
+        @Header("Authorization") token: String,
+        @Body changePasswordRequest: ChangePasswordRequest
+    ): Call<ChangePasswordResponse>
 }

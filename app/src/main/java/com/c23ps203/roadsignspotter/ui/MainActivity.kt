@@ -31,6 +31,8 @@ class MainActivity : AppCompatActivity() {
         Log.d("token", sharedPref.getString(Constant.prefToken).toString())
         Log.d("name", sharedPref.getString(Constant.prefName).toString())
         Log.d("username", sharedPref.getString(Constant.prefUsername).toString())
+        Log.d("email", sharedPref.getString(Constant.prefEmail).toString())
+        Log.d("userId", sharedPref.getString(Constant.prefUserId).toString())
 
         binding.btnToCameraActivity.setOnClickListener {
             startActivity(Intent(this@MainActivity, ScanActivity::class.java))
