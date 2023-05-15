@@ -17,6 +17,7 @@ import com.c23ps203.roadsignspotter.utils.rotateBitmap
 import com.c23ps203.roadsignspotter.utils.uriToFile
 import java.io.File
 
+@Suppress("DEPRECATION")
 class ScanActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityScanBinding

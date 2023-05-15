@@ -43,7 +43,7 @@ class ChangePasswordActivity : AppCompatActivity() {
         request.newPassword = binding.edNewPassword.text.toString()
 
         val retro = Retro().getRetroClientInstance().create(Api::class.java)
-        retro.changePassword(token, request).enqueue(object : Callback<ChangePasswordResponse>{
+        retro.changePassword(token, request).enqueue(object : Callback<ChangePasswordResponse> {
             override fun onResponse(
                 call: Call<ChangePasswordResponse>,
                 response: Response<ChangePasswordResponse>
@@ -51,11 +51,13 @@ class ChangePasswordActivity : AppCompatActivity() {
                 val user = response.body()
                 if (response.isSuccessful) {
                     Log.d("ChangePasswordActivity", "onResponse: ${user?.message}")
-                    Toast.makeText(this@ChangePasswordActivity, user?.message, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@ChangePasswordActivity, user?.message, Toast.LENGTH_SHORT)
+                        .show()
                     startActivity(Intent(this@ChangePasswordActivity, ProfileActivity::class.java))
                 } else {
                     Log.d("ChangePasswordActivity", "Password change failed")
-                    Toast.makeText(this@ChangePasswordActivity, user?.message, Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this@ChangePasswordActivity, user?.message, Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
 
