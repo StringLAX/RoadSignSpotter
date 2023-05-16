@@ -15,6 +15,6 @@ class Retro {
     }
 
     companion object {
-        private const val BASE_URL = "" //pake ipv4 address di /ipconfig
+        private const val BASE_URL = "https://backend-dot-dulcet-clock-385809.uc.r.appspot.com" // API DEPLOY TRIAL ILHAM
     }
 }
