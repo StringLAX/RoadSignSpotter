@@ -5,6 +5,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.c23ps203.roadsignspotter.R
@@ -40,6 +41,7 @@ class RegisterActivity : AppCompatActivity() {
                     resources.getString(R.string.password_error)
                 }
                 else -> {
+                    showLoading(true)
                     register(name, username, email, password)
                 }
             }
@@ -51,9 +53,15 @@ class RegisterActivity : AppCompatActivity() {
             Log.d("Register Result", it.message.toString())
             Log.d("Register Result", it.userId.toString())
             Toast.makeText(this@RegisterActivity, it.message, Toast.LENGTH_SHORT).show()
+            showLoading(false)
             startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
         }, { errorMessage ->
+            showLoading(false)
             Toast.makeText(this@RegisterActivity, errorMessage, Toast.LENGTH_SHORT).show()
         })
+    }
+
+    private fun showLoading(state: Boolean) {
+        binding.progressBar.visibility = if (state) View.VISIBLE else View.GONE
     }
 }

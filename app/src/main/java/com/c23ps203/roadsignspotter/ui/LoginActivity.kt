@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import com.c23ps203.roadsignspotter.R
 import com.c23ps203.roadsignspotter.data.api.Api
@@ -45,6 +46,7 @@ class LoginActivity : AppCompatActivity() {
                     binding.edLoginPassword.error = resources.getString(R.string.password_error)
                 }
                 else -> {
+                    showLoading(true)
                     login()
                 }
             }
@@ -74,14 +76,17 @@ class LoginActivity : AppCompatActivity() {
                     Log.d("message", "${response.body()?.message}")
                     Toast.makeText(this@LoginActivity, R.string.login_success, Toast.LENGTH_SHORT)
                         .show()
+                    showLoading(false)
                     moveIntent()
                 }
                 else {
+                    showLoading(false)
                     Toast.makeText(this@LoginActivity, R.string.unauthorized, Toast.LENGTH_SHORT)
                         .show()
                 }
             }
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
+                showLoading(false)
                 Toast.makeText(this@LoginActivity, R.string.login_failed, Toast.LENGTH_SHORT)
                     .show()
             }
@@ -99,5 +104,9 @@ class LoginActivity : AppCompatActivity() {
         intent = Intent(this@LoginActivity, MainActivity::class.java)
         startActivity(intent)
         finish()
+    }
+
+    private fun showLoading(state: Boolean) {
+        binding.progressBar.visibility = if (state) View.VISIBLE else View.GONE
     }
 }
