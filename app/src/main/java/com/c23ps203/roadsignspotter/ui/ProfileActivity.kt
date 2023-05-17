@@ -33,6 +33,9 @@ class ProfileActivity : AppCompatActivity() {
         binding.tvUsername.text = resources.getString(R.string.username_profile) +
                 " ${sharedPref.getString(Constant.prefUsername).toString()}"
 
+        binding.tvEmail.text = resources.getString(R.string.email_profile) +
+                " ${sharedPref.getString(Constant.prefEmail).toString()}"
+
         binding.btnChangePassword.setOnClickListener {
             startActivity(Intent(this@ProfileActivity, ChangePasswordActivity::class.java))
         }

@@ -4,6 +4,7 @@
     <string name="password">Password</string>
     <string name="old_password">Old Password</string>
     <string name="new_password">New Password</string>
+    <string name="confirm_password">Confirm Password</string>
     <string name="login">Login</string>
     <string name="logout">Logout</string>
     <string name="register">Register</string>
@@ -12,6 +13,7 @@
     <string name="username">Username</string>
     <string name="dont_have_account">Don\'t have an account?</string>
     <string name="password_error">"Password harus memiliki minimal 8 karakter."</string>
+    <string name="password_not_match">"Password tidak sama."</string>
     <string name="name_empty">Nama tidak boleh kosong</string>
     <string name="username_empty">Username tidak boleh kosong</string>
     <string name="email_empty">Email tidak boleh kosong</string>
@@ -38,6 +40,7 @@
     <string name="failed_to_save_image">Gagal menyimpan gambar</string>
     <string name="name_profile">Name \t\t\t\t\t\t:</string>
     <string name="username_profile">Username \t:</string>
+    <string name="email_profile">Email \t\t\t\t\t\t\t:</string>
     <string name="change_password">Ubah Password</string>
     <string name="change_password_success">Password berhasil diubah</string>
     <string name="change_password_failed">Password gagal diubah</string>

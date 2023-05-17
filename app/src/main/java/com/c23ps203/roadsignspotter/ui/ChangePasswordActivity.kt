@@ -6,9 +6,10 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.c23ps203.roadsignspotter.R
 import com.c23ps203.roadsignspotter.data.helper.PreferenceHelper
-import com.c23ps203.roadsignspotter.databinding.ActivityChangePasswordBinding
 import com.c23ps203.roadsignspotter.data.viewmodel.ChangePasswordViewModel
+import com.c23ps203.roadsignspotter.databinding.ActivityChangePasswordBinding
 
 class ChangePasswordActivity : AppCompatActivity() {
 
@@ -30,8 +31,26 @@ class ChangePasswordActivity : AppCompatActivity() {
         binding.btnChangePassword.setOnClickListener {
             val currentPassword = binding.edOldPassword.text.toString()
             val newPassword = binding.edNewPassword.text.toString()
-            showLoading(true)
-            changePassword(currentPassword, newPassword)
+            val confirmPassword = binding.edConfirmPassword.text.toString()
+
+            when {
+                currentPassword.isEmpty() || newPassword.isEmpty() || confirmPassword.isEmpty() -> {
+                    binding.edOldPassword.error = resources.getString(R.string.password_empty)
+                    binding.edNewPassword.error = resources.getString(R.string.password_empty)
+                    binding.edConfirmPassword.error = resources.getString(R.string.password_empty)
+                }
+                newPassword.length < 8 -> {
+                    binding.edNewPassword.error = resources.getString(R.string.password_error)
+                }
+                newPassword != confirmPassword -> {
+                    binding.edNewPassword.error = resources.getString(R.string.password_not_match)
+                    binding.edConfirmPassword.error = resources.getString(R.string.password_not_match)
+                }
+                else -> {
+                    showLoading(true)
+                    changePassword(currentPassword, newPassword)
+                }
+            }
         }
     }
 
