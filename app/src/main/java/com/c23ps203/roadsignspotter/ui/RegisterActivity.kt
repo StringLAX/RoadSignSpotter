@@ -1,6 +1,6 @@
 package com.c23ps203.roadsignspotter.ui
 
-import RegisterViewModel
+import com.c23ps203.roadsignspotter.data.viewmodel.RegisterViewModel
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
