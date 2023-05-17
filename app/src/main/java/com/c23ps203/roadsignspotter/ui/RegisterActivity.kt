@@ -1,29 +1,27 @@
 package com.c23ps203.roadsignspotter.ui
 
+import RegisterViewModel
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.lifecycle.ViewModelProvider
 import com.c23ps203.roadsignspotter.R
-import com.c23ps203.roadsignspotter.data.api.Api
-import com.c23ps203.roadsignspotter.data.api.Retro
-import com.c23ps203.roadsignspotter.data.model.request.RegisterRequest
-import com.c23ps203.roadsignspotter.data.model.response.RegisterResponse
 import com.c23ps203.roadsignspotter.databinding.ActivityRegisterBinding
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
+    private lateinit var viewModel: RegisterViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         supportActionBar?.title = "Road-Sign Spotter" + " | " + "Register"
         setContentView(binding.root)
+
+        viewModel = ViewModelProvider(this)[RegisterViewModel::class.java]
 
         binding.btnRegister.setOnClickListener {
             val name = binding.edRegisterName.text.toString()
@@ -42,39 +40,18 @@ class RegisterActivity : AppCompatActivity() {
                     resources.getString(R.string.password_error)
                 }
                 else -> {
-                    register()
+                    register(name, username, email, password)
                 }
             }
         }
     }
 
-    private fun register() {
-        val request = RegisterRequest()
-        request.name = binding.edRegisterName.text.toString()
-        request.username = binding.edRegisterUsername.text.toString()
-        request.email = binding.edRegisterEmail.text.toString()
-        request.password = binding.edRegisterPassword.text.toString()
-
-        val retro = Retro().getRetroClientInstance().create(Api::class.java)
-        retro.register(request).enqueue(object : Callback<RegisterResponse> {
-            override fun onResponse(
-                call: Call<RegisterResponse>, response: Response<RegisterResponse>
-            ) {
-                val user = response.body()
-                if (user != null) {
-                    Log.d("Register Result", user.message.toString())
-                    intent = Intent(this@RegisterActivity, LoginActivity::class.java)
-                    startActivity(intent)
-                } else {
-                    Toast.makeText(this@RegisterActivity, R.string.email_exist, Toast.LENGTH_SHORT)
-                        .show()
-                }
-            }
-
-            override fun onFailure(call: Call<RegisterResponse>, t: Throwable) {
-                Toast.makeText(this@RegisterActivity, t.message, Toast.LENGTH_SHORT).show()
-            }
-
+    private fun register(name: String, username: String, email: String, password: String) {
+        viewModel.register(name, username, email, password, {
+            Log.d("Register Result", it.message.toString())
+            startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
+        }, { errorMessage ->
+            Toast.makeText(this@RegisterActivity, errorMessage, Toast.LENGTH_SHORT).show()
         })
     }
 }

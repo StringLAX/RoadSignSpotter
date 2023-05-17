@@ -11,6 +11,7 @@ import com.c23ps203.roadsignspotter.data.helper.Constant
 import com.c23ps203.roadsignspotter.data.helper.PreferenceHelper
 import com.c23ps203.roadsignspotter.databinding.ActivityProfileBinding
 
+@Suppress("DEPRECATION")
 class ProfileActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityProfileBinding
