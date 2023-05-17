@@ -49,6 +49,8 @@ class RegisterActivity : AppCompatActivity() {
     private fun register(name: String, username: String, email: String, password: String) {
         viewModel.register(name, username, email, password, {
             Log.d("Register Result", it.message.toString())
+            Log.d("Register Result", it.userId.toString())
+            Toast.makeText(this@RegisterActivity, it.message, Toast.LENGTH_SHORT).show()
             startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
         }, { errorMessage ->
             Toast.makeText(this@RegisterActivity, errorMessage, Toast.LENGTH_SHORT).show()

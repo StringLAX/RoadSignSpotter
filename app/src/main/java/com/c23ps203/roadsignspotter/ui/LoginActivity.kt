@@ -72,15 +72,19 @@ class LoginActivity : AppCompatActivity() {
                     sharedPref.put(Constant.prefEmail, "${response.body()?.email}")
                     sharedPref.put(Constant.prefUserId, "${response.body()?.userId}")
                     Log.d("message", "${response.body()?.message}")
+                    Toast.makeText(this@LoginActivity, R.string.login_success, Toast.LENGTH_SHORT)
+                        .show()
                     moveIntent()
                 }
+                else {
+                    Toast.makeText(this@LoginActivity, R.string.unauthorized, Toast.LENGTH_SHORT)
+                        .show()
+                }
             }
-
             override fun onFailure(call: Call<LoginResponse>, t: Throwable) {
-                Toast.makeText(this@LoginActivity, R.string.unauthorized, Toast.LENGTH_SHORT)
+                Toast.makeText(this@LoginActivity, R.string.login_failed, Toast.LENGTH_SHORT)
                     .show()
             }
-
         })
     }
 

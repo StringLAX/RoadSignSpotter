@@ -7,7 +7,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import com.c23ps203.roadsignspotter.data.helper.PreferenceHelper
 import com.c23ps203.roadsignspotter.databinding.ActivityChangePasswordBinding
-import com.c23ps203.roadsignspotter.viewmodel.ChangePasswordViewModel
+import com.c23ps203.roadsignspotter.data.viewmodel.ChangePasswordViewModel
 
 class ChangePasswordActivity : AppCompatActivity() {
 

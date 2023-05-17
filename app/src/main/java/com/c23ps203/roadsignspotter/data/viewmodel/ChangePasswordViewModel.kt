@@ -1,4 +1,4 @@
-package com.c23ps203.roadsignspotter.viewmodel
+package com.c23ps203.roadsignspotter.data.viewmodel
 
 import android.util.Log
 import androidx.lifecycle.ViewModel

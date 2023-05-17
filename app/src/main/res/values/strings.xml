@@ -39,4 +39,9 @@
     <string name="name_profile">Name \t\t\t\t\t\t:</string>
     <string name="username_profile">Username \t:</string>
     <string name="change_password">Ubah Password</string>
+    <string name="change_password_success">Password berhasil diubah</string>
+    <string name="change_password_failed">Password gagal diubah</string>
+    <string name="change_password_error">Password lama salah</string>
+    <string name="login_success">Login berhasil</string>
+    <string name="login_failed">Login gagal</string>
 </resources>
