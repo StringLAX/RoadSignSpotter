@@ -30,7 +30,7 @@ class LoginActivity : AppCompatActivity() {
 
         sharedPref = PreferenceHelper(this)
 
-        supportActionBar?.title = "Road-Sign Spotter" + " | " + "Login"
+        supportActionBar?.hide()
 
         binding.btnLogin.setOnClickListener {
 

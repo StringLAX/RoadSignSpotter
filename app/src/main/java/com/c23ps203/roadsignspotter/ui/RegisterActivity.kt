@@ -19,7 +19,7 @@ class RegisterActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
-        supportActionBar?.title = "Road-Sign Spotter" + " | " + "Register"
+        supportActionBar?.hide()
         setContentView(binding.root)
 
         viewModel = ViewModelProvider(this)[RegisterViewModel::class.java]
