@@ -8,14 +8,16 @@
 
     <ImageView
         android:id="@+id/logo_rss"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:src="@drawable/hint"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:contentDescription="@string/logo"
+        android:src="@drawable/ic_roadblock"
         app:layout_constraintBottom_toTopOf="@+id/progress_bar"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:contentDescription="@string/logo" />
+        app:layout_constraintVertical_bias="0.613" />
 
     <TextView
         android:id="@+id/road_sign_spotter"
