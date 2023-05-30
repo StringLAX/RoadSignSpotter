@@ -26,7 +26,7 @@ class CameraActivity : AppCompatActivity() {
         binding = ActivityCameraBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.title = "Road-Sign Spotter" + " | " + "Camera"
+        supportActionBar?.hide()
 
         startCamera()
 
