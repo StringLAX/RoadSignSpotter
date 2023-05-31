@@ -8,6 +8,7 @@ import android.net.Uri
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
@@ -16,6 +17,9 @@ import com.c23ps203.roadsignspotter.R
 import com.c23ps203.roadsignspotter.databinding.ActivityScanBinding
 import com.c23ps203.roadsignspotter.utils.rotateBitmap
 import com.c23ps203.roadsignspotter.utils.uriToFile
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody.Companion.asRequestBody
 import java.io.File
 
 @Suppress("DEPRECATION")
@@ -64,7 +68,7 @@ class ScanActivity : AppCompatActivity() {
         }
 
         binding.btnScannow.setOnClickListener {
-
+            startScan()
         }
     }
 
@@ -115,6 +119,25 @@ class ScanActivity : AppCompatActivity() {
             getFile = myFile
 
             binding.ivScanPreview.setImageURI(selectedImg)
+        }
+    }
+
+    private fun startScan(){
+        if (getFile != null){
+            val file = getFile as File
+
+            val requestImageFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
+            val imageMultipart: MultipartBody.Part = MultipartBody.Part.createFormData(
+                "photo",
+                file.name,
+                requestImageFile
+            )
+            Log.d("TAG", "startScan: $imageMultipart")
+            Log.d("TAG", "startScan: $file")
+            Log.d("TAG", "startScan: image not empty")
+        } else {
+            Toast.makeText(this, "Please select an image", Toast.LENGTH_SHORT).show()
+            Log.d("TAG", "startScan: image empty")
         }
     }
 
