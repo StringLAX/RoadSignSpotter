@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
 import android.net.Uri
+import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
@@ -82,12 +83,16 @@ class ScanActivity : AppCompatActivity() {
             val isBackCamera = it.data?.getBooleanExtra("isBackCamera", true) as Boolean
 
             getFile = myFile
-            val result = rotateBitmap(
-                BitmapFactory.decodeFile(myFile.path),
-                isBackCamera
-            )
 
-            binding.ivScanPreview.setImageBitmap(result)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                binding.ivScanPreview.setImageURI(Uri.fromFile(myFile))
+            } else {
+                val result = rotateBitmap(
+                    BitmapFactory.decodeFile(myFile.path),
+                    isBackCamera
+                )
+                binding.ivScanPreview.setImageBitmap(result)
+            }
         }
     }
 
