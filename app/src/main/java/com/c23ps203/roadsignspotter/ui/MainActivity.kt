@@ -22,11 +22,11 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.title = "Road-Sign Spotter" + " | " + "Main"
+        supportActionBar?.title = "Road-Sign Spotter" + " | " + "Dashboard"
 
         sharedPref = PreferenceHelper(this)
 
-        binding.tvName.text = "Hello ${sharedPref.getString(Constant.prefName).toString()}"
+        binding.tvName.text = sharedPref.getString(Constant.prefName).toString()
 
         Log.d("token", sharedPref.getString(Constant.prefToken).toString())
         Log.d("name", sharedPref.getString(Constant.prefName).toString())

@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Road-Sign Spotter</string>
+    <string name="hello">Hello!</string>
     <string name="logo">Logo</string>
     <string name="email">E-mail</string>
     <string name="password">Password</string>
@@ -10,6 +11,7 @@
     <string name="logout">Logout</string>
     <string name="register">Register</string>
     <string name="click_register">Register Here</string>
+    <string name="show_name"><u>Name</u></string>
     <string name="name">Name</string>
     <string name="username">Username</string>
     <string name="dont_have_account">Don\'t have an account?</string>

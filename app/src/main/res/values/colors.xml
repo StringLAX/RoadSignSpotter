@@ -22,4 +22,6 @@
     <color name="blue_on_primary_container">#001B3F</color>
     <color name="blue_on_secondary_container">#131C2C</color>
     <color name="blue_on_tertiary_container">#29132E</color>
+    <color name="asphalt_yellow">#D6A215</color>
+    <color name="asphalt_yellow_darker">#A27B0F</color>
 </resources>

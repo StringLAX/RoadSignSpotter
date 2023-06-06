@@ -4,7 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_aspal"
     tools:context=".ui.MainActivity">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:padding="0dp"
+        android:text="@string/hello"
+        android:textColor="@color/asphalt_yellow"
+        android:textSize="36sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@+id/tv_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.517"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
 
     <TextView
         android:id="@+id/tv_name"
@@ -15,34 +32,32 @@
         android:layout_alignParentEnd="true"
         android:layout_centerHorizontal="true"
         android:layout_margin="15dp"
-        android:padding="10dp"
         android:text="@string/name"
-        android:textColor="@color/blue_primary"
-        android:textSize="24sp"
+        android:textColor="@color/asphalt_yellow"
+        android:textSize="31sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintHorizontal_bias="0.517"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.023" />
+        app:layout_constraintVertical_bias="0.103" />
 
-    <ImageButton
+    <android.widget.Button
         android:id="@+id/btn_to_camera_activity"
         android:layout_width="315dp"
         android:layout_height="264dp"
-        android:contentDescription="@string/scannow"
         android:layout_below="@+id/tv_name"
         android:layout_centerHorizontal="true"
         android:layout_marginHorizontal="20dp"
         android:layout_marginTop="64dp"
-        android:background="@drawable/btn_scan"
+        android:background="@drawable/btn_deteksi_kuning"
+        android:contentDescription="@string/scannow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_name"
-        app:layout_constraintVertical_bias="0.239" />
+        app:layout_constraintVertical_bias="0.11" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
