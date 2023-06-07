@@ -27,15 +27,6 @@ class ProfileActivity : AppCompatActivity() {
 
         sharedPref = PreferenceHelper(this)
 
-//        binding.tvName.text = resources.getString(R.string.name_profile) + " ${
-//            sharedPref.getString(Constant.prefName).toString()
-//        }"
-//        binding.tvUsername.text = resources.getString(R.string.username_profile) +
-//                " ${sharedPref.getString(Constant.prefUsername).toString()}"
-//
-//        binding.tvEmail.text = resources.getString(R.string.email_profile) +
-//                " ${sharedPref.getString(Constant.prefEmail).toString()}"
-
         binding.tvShowName.text = sharedPref.getString(Constant.prefName).toString()
         binding.tvShowUsername.text = sharedPref.getString(Constant.prefUsername).toString()
         binding.tvShowEmail.text = sharedPref.getString(Constant.prefEmail).toString()

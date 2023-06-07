@@ -9,11 +9,15 @@ import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Toast
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.c23ps203.roadsignspotter.R
+import com.c23ps203.roadsignspotter.data.api.Api
+import com.c23ps203.roadsignspotter.data.api.RetroScan
+import com.c23ps203.roadsignspotter.data.model.response.ScanResponse
 import com.c23ps203.roadsignspotter.databinding.ActivityScanBinding
 import com.c23ps203.roadsignspotter.utils.rotateBitmap
 import com.c23ps203.roadsignspotter.utils.uriToFile
@@ -21,6 +25,10 @@ import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.MultipartBody
 import okhttp3.RequestBody.Companion.asRequestBody
 import java.io.File
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
 
 @Suppress("DEPRECATION")
 class ScanActivity : AppCompatActivity() {
@@ -95,6 +103,7 @@ class ScanActivity : AppCompatActivity() {
                     BitmapFactory.decodeFile(myFile.path),
                     isBackCamera
                 )
+                binding.ivScanPreview.background = null
                 binding.ivScanPreview.setImageBitmap(result)
             }
         }
@@ -118,27 +127,68 @@ class ScanActivity : AppCompatActivity() {
 
             getFile = myFile
 
+            binding.ivScanPreview.background = null
             binding.ivScanPreview.setImageURI(selectedImg)
         }
     }
 
-    private fun startScan(){
-        if (getFile != null){
+    private fun startScan() {
+        showLoading(true)
+        if (getFile != null) {
             val file = getFile as File
 
             val requestImageFile = file.asRequestBody("image/jpeg".toMediaTypeOrNull())
             val imageMultipart: MultipartBody.Part = MultipartBody.Part.createFormData(
-                "photo",
+                "image",
                 file.name,
                 requestImageFile
             )
-            Log.d("TAG", "startScan: $imageMultipart")
-            Log.d("TAG", "startScan: $file")
-            Log.d("TAG", "startScan: image not empty")
+
+            val retro = RetroScan().getRetroClientInstance().create(Api::class.java)
+            retro.scanImage(imageMultipart).enqueue(object : Callback<ScanResponse> {
+                override fun onResponse(
+                    call: Call<ScanResponse>,
+                    response: Response<ScanResponse>
+                ) {
+                    if (response.isSuccessful) {
+                        showLoading(false)
+                        val responseBody = response.body()
+                        Log.d("TAG", "onResponse: ${responseBody?.label}")
+                        Log.d("TAG", "onResponse: ${responseBody?.confidence}")
+                        val imageUri = Uri.fromFile(file)
+                        intent = Intent(this@ScanActivity, ResultActivity::class.java).also {
+                            it.putExtra(ResultActivity.EXTRA_LABEL, responseBody?.label)
+                            it.putExtra(ResultActivity.EXTRA_CONFIDENCE, responseBody?.confidence)
+                            it.putExtra(ResultActivity.EXTRA_IMAGE, imageUri)
+                        }
+
+                        Log.d("TAG", "onResponse: ${responseBody?.label}")
+                        Log.d("TAG", "onResponse: ${responseBody?.confidence}")
+                        startActivity(intent)
+                    } else {
+                        Toast.makeText(this@ScanActivity, "gagal", Toast.LENGTH_SHORT).show()
+                    }
+                }
+
+                override fun onFailure(call: Call<ScanResponse>, t: Throwable) {
+                    showLoading(false)
+                    Toast.makeText(
+                        this@ScanActivity,
+                        resources.getString(R.string.image_not_found),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                }
+
+            })
         } else {
+            showLoading(false)
             Toast.makeText(this, "Please select an image", Toast.LENGTH_SHORT).show()
             Log.d("TAG", "startScan: image empty")
         }
+    }
+
+    private fun showLoading(state: Boolean) {
+        binding.progressBar.visibility = if (state) View.VISIBLE else View.GONE
     }
 
     companion object {

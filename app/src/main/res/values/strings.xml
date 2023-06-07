@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">Road-Sign Spotter</string>
+    <string name="image_not_found">Gambar tidak ditemukan di dataset</string>
     <string name="hello">Hello!</string>
     <string name="logo">Logo</string>
     <string name="email">E-mail</string>
@@ -50,4 +51,29 @@
     <string name="change_password_error">Password lama salah</string>
     <string name="login_success">Login berhasil</string>
     <string name="login_failed">Login gagal</string>
+    <string name="register_success">Register berhasil</string>
+    <string name="judul_label">Hasil Deteksi</string>
+    <string name="hasil_label">Hasil Label</string>
+    <string name="judul_confidence">Confidence</string>
+    <string name="hasil_confidence">Hasil Confidence</string>
+    <string name="judul_penjelasan">Penjelasan</string>
+    <string name="hasil_penjelasan">Hasil Penjelasan</string>
+
+    <string name="dilarang_berhenti">Sign ini berfungsi untuk mengatur pengendara bahwa tidak diperbolehkan berhenti dan parkir di area ini.</string>
+    <string name="isyarat_lalin">Sign ini berfungsi untuk mengatur pejalan kaki agar berhati-hati saat melintas di area penyeberang jalan.</string>
+    <string name="larangan_belokkanan">Sign ini berfungsi untuk mengatur pengendara bahwa tidak diperbolehkan belok kanan.</string>
+    <string name="larangan_belokkiri">Sign ini berfungsi untuk mengatur pengendara bahwa tidak diperbolehkan belok kiri.</string>
+    <string name="larangan_memutar">Sign ini berfungsi untuk mengatur pengendara bahwa tidak diperbolehkan memutar.</string>
+    <string name="dilarang_parkir">Sign ini berfungsi untuk mengatur pengendara bahwa tidak diperbolehkan parkir di area ini.</string>
+    <string name="area_parkir">Sign ini memberikan penjelasan bahwa daerah ini merupakan area parkir kendaraan.</string>
+    <string name="penegasan_rambu_tambahan">Sign ini memberikan peringatan kepada para pengendara dan pengguna jalan untuk lebih berhati-hati ketika ingin memasuki suatu jalur.</string>
+
+    <string name="label_1">Dilarang Berhenti</string>
+    <string name="label_2">Dilarang Parkir</string>
+    <string name="label_3">Dilarang Belok Kanan</string>
+    <string name="label_4">Dilarang Belok Kiri</string>
+    <string name="label_5">Dilarang Memutar</string>
+    <string name="label_6">Penegasan Rambu Tambahan</string>
+    <string name="label_7">Isyarat Lalu lintas</string>
+    <string name="label_8">Area Parkir</string>
 </resources>
