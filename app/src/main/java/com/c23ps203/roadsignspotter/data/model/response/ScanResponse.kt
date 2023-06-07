@@ -11,5 +11,9 @@ data class ScanResponse (
 
     @SerializedName("confidence")
     @Expose
-    var confidence: String
+    var confidence: String,
+
+    @SerializedName("message")
+    @Expose
+    var message: String
 )

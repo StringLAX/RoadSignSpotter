@@ -151,7 +151,7 @@ class ScanActivity : AppCompatActivity() {
                     call: Call<ScanResponse>,
                     response: Response<ScanResponse>
                 ) {
-                    if (response.isSuccessful) {
+                    if (response.isSuccessful && (response.body()?.message ?: "") != "No objects detected") {
                         showLoading(false)
                         val responseBody = response.body()
                         Log.d("TAG", "onResponse: ${responseBody?.label}")
@@ -162,12 +162,17 @@ class ScanActivity : AppCompatActivity() {
                             it.putExtra(ResultActivity.EXTRA_CONFIDENCE, responseBody?.confidence)
                             it.putExtra(ResultActivity.EXTRA_IMAGE, imageUri)
                         }
-
                         Log.d("TAG", "onResponse: ${responseBody?.label}")
                         Log.d("TAG", "onResponse: ${responseBody?.confidence}")
                         startActivity(intent)
                     } else {
-                        Toast.makeText(this@ScanActivity, "gagal", Toast.LENGTH_SHORT).show()
+                        showLoading(false)
+                        Toast.makeText(
+                            this@ScanActivity,
+                            resources.getString(R.string.image_not_found),
+                            Toast.LENGTH_SHORT
+                        ).show()
+
                     }
                 }
 
