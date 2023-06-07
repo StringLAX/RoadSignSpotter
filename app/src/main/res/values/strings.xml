@@ -58,6 +58,7 @@
     <string name="hasil_confidence">Hasil Confidence</string>
     <string name="judul_penjelasan">Penjelasan</string>
     <string name="hasil_penjelasan">Hasil Penjelasan</string>
+    <string name="scan_lagi">Scan Lagi</string>
 
     <string name="dilarang_berhenti">Sign ini berfungsi untuk mengatur pengendara bahwa tidak diperbolehkan berhenti dan parkir di area ini.</string>
     <string name="isyarat_lalin">Sign ini berfungsi untuk mengatur pejalan kaki agar berhati-hati saat melintas di area penyeberang jalan.</string>

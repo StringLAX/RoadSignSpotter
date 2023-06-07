@@ -97,6 +97,7 @@ class ScanActivity : AppCompatActivity() {
             getFile = myFile
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                binding.ivScanPreview.background = null
                 binding.ivScanPreview.setImageURI(Uri.fromFile(myFile))
             } else {
                 val result = rotateBitmap(

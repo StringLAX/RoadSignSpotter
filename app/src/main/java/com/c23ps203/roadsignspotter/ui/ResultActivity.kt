@@ -33,11 +33,17 @@ class ResultActivity : AppCompatActivity() {
         val percentage = confidence?.toDouble()?.times(100)?.toInt()
         binding.tvHasilConfidence.text = "$percentage%"
 
-        binding.button.setOnClickListener {
+        binding.btnSelengkapnya.setOnClickListener {
             val url = "https://www.google.com/search?q=Apa itu rambu ${binding.tvLabelPendeteksian.text} 'safetysign' "
             val intent = Intent(Intent.ACTION_VIEW)
             intent.data = Uri.parse(url)
             startActivity(intent)
+        }
+
+        binding.fabScanAgain.setOnClickListener {
+            val intent = Intent(this, ScanActivity::class.java)
+            startActivity(intent)
+            finish()
         }
 
         when(binding.tvLabelPendeteksian.text) {
