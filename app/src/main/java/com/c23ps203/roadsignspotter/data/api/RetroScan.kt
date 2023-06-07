@@ -15,6 +15,6 @@ class RetroScan {
     }
 
     companion object {
-        private const val BASE_URL = "https://9276-35-185-140-93.ngrok.io" // API TRIAL ML LOCAL
+        private const val BASE_URL = "https://machinelearning-dot-dulcet-clock-385809.uc.r.appspot.com" // API TRIAL ML LOCAL
     }
 }
