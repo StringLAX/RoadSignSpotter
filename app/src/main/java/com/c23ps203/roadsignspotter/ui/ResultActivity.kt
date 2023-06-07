@@ -6,9 +6,9 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import com.bumptech.glide.Glide
 import com.c23ps203.roadsignspotter.R
 import com.c23ps203.roadsignspotter.databinding.ActivityResultBinding
+import java.io.File
 
 @Suppress("DEPRECATION")
 class ResultActivity : AppCompatActivity() {
@@ -23,18 +23,16 @@ class ResultActivity : AppCompatActivity() {
 
         supportActionBar?.title = "Road-Sign Spotter" + " | " + "Scan Result"
 
-        resetScanResult()
+        showLoading(true)
+        val imageFile = intent.getSerializableExtra(EXTRA_IMAGE_FILE) as File
 
-        val imageUri = intent.getParcelableExtra<Uri>(EXTRA_IMAGE)
-
-        Glide.with(this)
-            .load(imageUri)
-            .into(binding.ivScanPreview)
+        binding.ivScanPreview.setImageURI(Uri.fromFile(imageFile))
         binding.tvLabelPendeteksian.text = intent.getStringExtra(EXTRA_LABEL)
 
         val confidence = intent.getStringExtra(EXTRA_CONFIDENCE)
         val percentage = confidence?.toDouble()?.times(100)?.toInt()
         binding.tvHasilConfidence.text = "$percentage%"
+        showLoading(false)
 
         binding.btnSelengkapnya.setOnClickListener {
             val url = "https://www.google.com/search?q=Apa itu rambu ${binding.tvLabelPendeteksian.text} 'safetysign' "
@@ -44,8 +42,6 @@ class ResultActivity : AppCompatActivity() {
         }
 
         binding.fabScanAgain.setOnClickListener {
-            resetScanResult()
-
             val intent = Intent(this, ScanActivity::class.java)
             startActivity(intent)
             finish()
@@ -63,15 +59,6 @@ class ResultActivity : AppCompatActivity() {
         }
     }
 
-    private fun resetScanResult() {
-        showLoading(true)
-        binding.ivScanPreview.setImageDrawable(null)
-        binding.tvLabelPendeteksian.text = ""
-        binding.tvHasilConfidence.text = ""
-        binding.tvHasilPenjelasan.text = ""
-        showLoading(false)
-    }
-
     private fun showLoading(state: Boolean) {
         binding.progressBar.visibility = if (state) View.VISIBLE else View.GONE
     }
@@ -79,6 +66,6 @@ class ResultActivity : AppCompatActivity() {
     companion object {
         const val EXTRA_LABEL = "extra_label"
         const val EXTRA_CONFIDENCE = "extra_confidence"
-        const val EXTRA_IMAGE = "extra_image"
+        const val EXTRA_IMAGE_FILE = "extra_image_file"
     }
 }

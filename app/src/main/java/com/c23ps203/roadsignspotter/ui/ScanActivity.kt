@@ -29,7 +29,6 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-
 @Suppress("DEPRECATION")
 class ScanActivity : AppCompatActivity() {
 
@@ -97,8 +96,9 @@ class ScanActivity : AppCompatActivity() {
             getFile = myFile
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                val result = BitmapFactory.decodeFile(myFile.path)
                 binding.ivScanPreview.background = null
-                binding.ivScanPreview.setImageURI(Uri.fromFile(myFile))
+                binding.ivScanPreview.setImageBitmap(result)
             } else {
                 val result = rotateBitmap(
                     BitmapFactory.decodeFile(myFile.path),
@@ -156,11 +156,10 @@ class ScanActivity : AppCompatActivity() {
                         val responseBody = response.body()
                         Log.d("TAG", "onResponse: ${responseBody?.label}")
                         Log.d("TAG", "onResponse: ${responseBody?.confidence}")
-                        val imageUri = Uri.fromFile(file)
                         intent = Intent(this@ScanActivity, ResultActivity::class.java).also {
                             it.putExtra(ResultActivity.EXTRA_LABEL, responseBody?.label)
                             it.putExtra(ResultActivity.EXTRA_CONFIDENCE, responseBody?.confidence)
-                            it.putExtra(ResultActivity.EXTRA_IMAGE, imageUri)
+                            it.putExtra(ResultActivity.EXTRA_IMAGE_FILE, file)
                         }
                         Log.d("TAG", "onResponse: ${responseBody?.label}")
                         Log.d("TAG", "onResponse: ${responseBody?.confidence}")
@@ -172,7 +171,6 @@ class ScanActivity : AppCompatActivity() {
                             resources.getString(R.string.image_not_found),
                             Toast.LENGTH_SHORT
                         ).show()
-
                     }
                 }
 
