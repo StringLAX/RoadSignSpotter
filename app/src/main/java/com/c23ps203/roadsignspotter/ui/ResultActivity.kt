@@ -5,6 +5,7 @@ import android.content.Intent
 import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import com.bumptech.glide.Glide
 import com.c23ps203.roadsignspotter.R
 import com.c23ps203.roadsignspotter.databinding.ActivityResultBinding
@@ -21,6 +22,8 @@ class ResultActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar?.title = "Road-Sign Spotter" + " | " + "Scan Result"
+
+        resetScanResult()
 
         val imageUri = intent.getParcelableExtra<Uri>(EXTRA_IMAGE)
 
@@ -41,6 +44,8 @@ class ResultActivity : AppCompatActivity() {
         }
 
         binding.fabScanAgain.setOnClickListener {
+            resetScanResult()
+
             val intent = Intent(this, ScanActivity::class.java)
             startActivity(intent)
             finish()
@@ -56,6 +61,19 @@ class ResultActivity : AppCompatActivity() {
             resources.getString(R.string.label_7) -> binding.tvHasilPenjelasan.text = resources.getString(R.string.isyarat_lalin)
             resources.getString(R.string.label_8) -> binding.tvHasilPenjelasan.text = resources.getString(R.string.area_parkir)
         }
+    }
+
+    private fun resetScanResult() {
+        showLoading(true)
+        binding.ivScanPreview.setImageDrawable(null)
+        binding.tvLabelPendeteksian.text = ""
+        binding.tvHasilConfidence.text = ""
+        binding.tvHasilPenjelasan.text = ""
+        showLoading(false)
+    }
+
+    private fun showLoading(state: Boolean) {
+        binding.progressBar.visibility = if (state) View.VISIBLE else View.GONE
     }
 
     companion object {
