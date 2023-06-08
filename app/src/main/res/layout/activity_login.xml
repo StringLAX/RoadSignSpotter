@@ -5,6 +5,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.LoginActivity"
+    android:background="@drawable/bg_aspal"
     android:orientation="vertical">
 
     <TextView
@@ -13,6 +14,7 @@
         android:layout_height="wrap_content"
         android:text="@string/app_name"
         android:textSize="24sp"
+        android:textColor="@color/asphalt_yellow_darker"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -80,6 +82,7 @@
         android:layout_marginTop="10dp"
         android:layout_marginBottom="10dp"
         android:text="@string/login"
+        android:backgroundTint="@color/asphalt_yellow"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ed_login_password"
         app:layout_constraintVertical_bias="0.073"
