@@ -57,6 +57,7 @@ class ScanActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar?.title = "Road-Sign Spotter" + " | " + "Scan"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         if (!allPermissionsGranted()) {
             ActivityCompat.requestPermissions(
@@ -163,6 +164,7 @@ class ScanActivity : AppCompatActivity() {
                         }
                         Log.d("TAG", "onResponse: ${responseBody?.label}")
                         Log.d("TAG", "onResponse: ${responseBody?.confidence}")
+                        Log.d("TAG", "onResponse: ${responseBody?.message}")
                         startActivity(intent)
                     } else {
                         showLoading(false)
@@ -178,7 +180,7 @@ class ScanActivity : AppCompatActivity() {
                     showLoading(false)
                     Toast.makeText(
                         this@ScanActivity,
-                        resources.getString(R.string.image_not_found),
+                        resources.getString(R.string.terjadi_kesalahan),
                         Toast.LENGTH_SHORT
                     ).show()
                 }
@@ -186,7 +188,7 @@ class ScanActivity : AppCompatActivity() {
             })
         } else {
             showLoading(false)
-            Toast.makeText(this, "Please select an image", Toast.LENGTH_SHORT).show()
+            Toast.makeText(this, resources.getString(R.string.iv_empty), Toast.LENGTH_SHORT).show()
             Log.d("TAG", "startScan: image empty")
         }
     }

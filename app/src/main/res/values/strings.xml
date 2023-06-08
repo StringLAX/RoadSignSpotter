@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">Road-Sign Spotter</string>
     <string name="image_not_found">Gambar tidak ditemukan di dataset</string>
+    <string name="terjadi_kesalahan">Terjadi kesalahan.</string>
+    <string name="iv_empty">Gambar tidak ada! gunakan kamera / ambil dari gallery</string>
     <string name="hello">Hello!</string>
     <string name="logo">Logo</string>
     <string name="email">E-mail</string>

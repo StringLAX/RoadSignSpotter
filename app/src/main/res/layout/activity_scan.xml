@@ -7,7 +7,6 @@
     android:background="@drawable/bg_aspal"
     tools:context=".ui.ScanActivity">
 
-
     <ImageButton
         android:id="@+id/iv_scan_preview"
         android:layout_width="320dp"

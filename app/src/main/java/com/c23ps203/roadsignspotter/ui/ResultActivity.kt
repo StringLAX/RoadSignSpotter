@@ -22,6 +22,7 @@ class ResultActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         supportActionBar?.title = "Road-Sign Spotter" + " | " + "Scan Result"
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         showLoading(true)
         val imageFile = intent.getSerializableExtra(EXTRA_IMAGE_FILE) as File
