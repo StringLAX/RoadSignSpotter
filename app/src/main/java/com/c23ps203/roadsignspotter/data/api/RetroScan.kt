@@ -15,6 +15,6 @@ class RetroScan {
     }
 
     companion object {
-        private const val BASE_URL = "https://machinelearning-dot-dulcet-clock-385809.uc.r.appspot.com" // API DEPLOY TRIAL ML DI ILHAM
+        private const val BASE_URL = "https://machinelearning-dot-road-sign-spoter.uc.r.appspot.com" // API DEPLOY ML AKUN BANGKIT
     }
 }

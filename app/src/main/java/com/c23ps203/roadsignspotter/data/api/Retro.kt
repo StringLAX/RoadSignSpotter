@@ -15,6 +15,6 @@ class Retro {
     }
 
     companion object {
-        private const val BASE_URL = "https://backend-dot-dulcet-clock-385809.uc.r.appspot.com" // API DEPLOY TRIAL DI ILHAM API-V4
+        private const val BASE_URL = "https://road-sign-spoter.uc.r.appspot.com" // API DEPLOY AUTH AKUN BANGKIT
     }
 }
