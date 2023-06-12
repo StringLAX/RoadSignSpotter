@@ -9,9 +9,10 @@
 
     <ImageView
         android:id="@+id/iv_scan_preview"
-        android:layout_width="364dp"
-        android:layout_height="305dp"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
         android:layout_margin="20dp"
+        android:contentDescription="@string/gambar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.34"
@@ -88,7 +89,7 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
         android:layout_marginTop="600dp"
-        android:text="LIHAT PENJELASAN SELENGKAPNYA"
+        android:text="@string/lihat_penjelasan"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.527"
         app:layout_constraintStart_toStartOf="@+id/iv_scan_preview"
