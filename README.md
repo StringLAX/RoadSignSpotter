@@ -17,7 +17,7 @@ As the name implies, this repository is used as the main working repository for 
 
 
 A. UI / UX Design
-* [Figma](https://figma.com/)
+* [Figma](https://www.figma.com/file/6X2f398x8Bo4kdCwXWbnpg/Road-Sign-Spotter?type=design&t=BkfHttuWDbzmgMxw-1)
 
 B. Android Tech
 * [Retrofit](https://github.com/square/retrofit)
