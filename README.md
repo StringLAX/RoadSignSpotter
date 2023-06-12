@@ -1,7 +1,7 @@
 # You are now in the Mobile Development repository of RoadSignSpotter.
 
 <p align="center"> <img src="https://i.ibb.co/ch9k3qB/RSS.png" width="150" height="150" /> </p>
-
+<p align="center"> <img src="https://i.ibb.co/9VcJNHz/logo-rss.png" width="150" height="150" /> </p>
 <div align="center">
   <p align="center">
     <a href="https://github.com/fajararahman14/RoadSignTraffic-RSS-"><strong>Back to the main repository</strong></a>
