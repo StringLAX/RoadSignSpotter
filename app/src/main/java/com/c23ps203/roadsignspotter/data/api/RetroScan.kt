@@ -15,6 +15,6 @@ class RetroScan {
     }
 
     companion object {
-        private const val BASE_URL = "https://machinelearning-dot-road-sign-spoter.uc.r.appspot.com" // API DEPLOY ML AKUN BANGKIT
+        private const val BASE_URL = "https://machinelearning-gb7riya7aq-uc.a.run.app" // API DEPLOY ML AKUN BANGKIT (Cloud Run)
     }
 }
