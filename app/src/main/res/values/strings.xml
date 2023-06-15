@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">Road-Sign Spotter</string>
     <string name="image_not_found">Gambar tidak ditemukan di dataset</string>
-    <string name="terjadi_kesalahan">Terjadi kesalahan.</string>
+    <string name="terjadi_kesalahan">Service Sedang Dinyalakan, Silahkan Coba Lagi!</string>
     <string name="iv_empty">Gambar tidak ada! gunakan kamera / ambil dari gallery</string>
     <string name="lihat_penjelasan">Lihat Penjelasan Selengkapnya</string>
     <string name="gambar">Gambar yang di scan</string>
